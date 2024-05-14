@@ -1,6 +1,6 @@
 import pygame
 from personagem import Personagem
-from obstaculos import Obstaculo
+from obstaculos import Comida
 pygame.init 
 
 #Criando a tela
@@ -12,8 +12,13 @@ FUNDO = pygame.transform.scale(FUNDO, (800, 500))
 #Criando personagem
 monster = Personagem ("imagens/monster.png",95,110,400,387)
 
+#LISTA DE COMIDA
+comida = []
+
 #criando obstaculo
-aranha = Obstaculo ("imagens/aranha.png", 200,200,300,0)
+aranha = Comida ("imagens/aranha.png", 100,100,20,0)
+cogumelo = Comida ("imagens/olho.png", 100,180,80,0)
+olho = Comida ("imagens/cogumelo.png",90,70,100,0)
 
 rodando = True
 while rodando:
@@ -23,12 +28,18 @@ while rodando:
             print("Você clicou!!")
         if evento.type == pygame.QUIT:
             rodando = False
+            
     tela.blit(FUNDO,(0,0))
 
     #Desenhando as imagens
     monster.movimentar_via_controle(pygame.K_UP,pygame.K_DOWN,pygame.K_RIGHT,pygame.K_LEFT)
     monster.desenhar(tela)
-    aranha.movimenta()
     aranha.desenhar(tela)
+    aranha.movimenta()
+    cogumelo.desenhar(tela)
+    cogumelo.movimenta()
+    olho.desenhar(tela)
+    olho.movimenta()
+
     #Atualizando tela
     pygame.display.update()

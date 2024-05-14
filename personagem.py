@@ -1,4 +1,7 @@
 import pygame
+
+#MONSTRO
+
 class Personagem:
 
     def __init__(self,arquivo_imagem,largura_imagem,altura_imagem,x_inicial,y_inicial):
